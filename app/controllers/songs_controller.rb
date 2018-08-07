@@ -44,8 +44,10 @@ class SongsController < ApplicationController
     @song.genres.clear
     params[:genres].each do |genre_id|
       @song.genres << Genre.find_by_id(genre_id)
-    end 
+    end
     @song.save
+
+    flash[:message] = "Successfully updated the song."
     erb :show_song
   end
 
