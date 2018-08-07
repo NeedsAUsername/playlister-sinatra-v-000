@@ -41,7 +41,11 @@ class SongsController < ApplicationController
     @song = Song.find_by_slug(params[:slug])
     @song.name = params[:song][:name]
     @song.artist = Artist.find_or_create_by(params[:artist])
-    @song.genres 
+    @song.genres.clear
+    params[:genres].each do |genre_id|
+      @song.genres << Genre.find_by_id(genre_id)
+    end 
+    @song.save
     erb :show_song
   end
 
