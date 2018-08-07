@@ -48,7 +48,7 @@ class SongsController < ApplicationController
     end
     @song.save
 
-    erb :show_song
+    redirect 'songs/#{@song.slug}'
   end
 
 end
