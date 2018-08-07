@@ -47,8 +47,8 @@ class SongsController < ApplicationController
     end
     @song.save
 
-    flash[:message] = "Successfully updated the song."
-    redirect "/songs/#{@song.slug}"
+    flash[:message] = "Successfully updated song."
+    erb :show_song
   end
 
 end
