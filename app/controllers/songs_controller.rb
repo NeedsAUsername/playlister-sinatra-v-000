@@ -34,6 +34,7 @@ class SongsController < ApplicationController
 
   get '/songs/:slug/edit' do
     @song = Song.find_by_slug(params[:slug])
+    flash[:message] = "Successfully updated the song."
     erb :edit_song
   end
 
@@ -47,7 +48,6 @@ class SongsController < ApplicationController
     end
     @song.save
 
-    flash[:message] = "Successfully updated the song."
     erb :show_song
   end
 
